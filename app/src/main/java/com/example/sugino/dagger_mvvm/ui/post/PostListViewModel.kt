@@ -3,6 +3,7 @@ package com.example.sugino.dagger_mvvm.ui.post
 import android.arch.lifecycle.MutableLiveData
 import android.telephony.euicc.DownloadableSubscription
 import android.view.View
+import android.view.WindowId
 import com.example.sugino.dagger_mvvm.R
 import com.example.sugino.dagger_mvvm.base.BaseViewModel
 import com.example.sugino.dagger_mvvm.model.Post
@@ -10,6 +11,7 @@ import com.example.sugino.dagger_mvvm.network.PostApi
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
+import retrofit2.http.Query
 import javax.inject.Inject
 
 class PostListViewModel: BaseViewModel() {
