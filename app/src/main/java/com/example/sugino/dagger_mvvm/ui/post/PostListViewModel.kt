@@ -5,6 +5,7 @@ import android.telephony.euicc.DownloadableSubscription
 import android.view.View
 import com.example.sugino.dagger_mvvm.R
 import com.example.sugino.dagger_mvvm.base.BaseViewModel
+import com.example.sugino.dagger_mvvm.model.Post
 import com.example.sugino.dagger_mvvm.network.PostApi
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -14,6 +15,7 @@ import javax.inject.Inject
 class PostListViewModel: BaseViewModel() {
     @Inject
     lateinit var postApi: PostApi
+    val postListAdapter = PostListAdapter()
 
     val loadingVisibility: MutableLiveData<Int> = MutableLiveData()
     val errorMessage: MutableLiveData<Int> = MutableLiveData()
@@ -32,7 +34,7 @@ class PostListViewModel: BaseViewModel() {
                 .doOnSubscribe { onRetrivePostListStart() }
                 .doOnTerminate { onRetrivePostListFinish() }
                 .subscribe(
-                        { onRetrivePostListSuccess() },
+                        { result -> onRetrivePostListSuccess(result) },
                         { onRetrivePostListError() }
                 )
     }
@@ -46,8 +48,8 @@ class PostListViewModel: BaseViewModel() {
         loadingVisibility.value = View.GONE
     }
 
-    private fun onRetrivePostListSuccess() {
-
+    private fun onRetrivePostListSuccess(postList: List<Post>) {
+        postListAdapter.updatePostList(postList)
     }
 
     private fun onRetrivePostListError() {
