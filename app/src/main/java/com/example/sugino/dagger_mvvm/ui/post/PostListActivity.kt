@@ -45,7 +45,7 @@ class PostListActivity: AppCompatActivity() {
         viewModel.postListAdapter.setOnItemClickListener(object : PostListAdapter.OnItemClickListener {
             override fun onClick(view: View, item: Post) {
                 val intent = Intent(this@PostListActivity, PostDetailActivity::class.java)
-                intent.putExtra("url", "https://qiita.com/furusin_oriver/items/5d791e638e9c53ea0a61")
+                intent.putExtra("url", item.url)
                 startActivity(intent)
             }
         })

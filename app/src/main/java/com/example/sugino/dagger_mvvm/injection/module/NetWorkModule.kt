@@ -2,6 +2,7 @@ package com.example.sugino.dagger_mvvm.injection.module
 
 import com.example.sugino.dagger_mvvm.network.PostApi
 import com.example.sugino.dagger_mvvm.utils.BASE_URL
+import com.example.sugino.dagger_mvvm.utils.Qiita_URL
 import dagger.Module
 import dagger.Provides
 import dagger.Reusable
@@ -26,7 +27,7 @@ internal fun providePostApi(retrofit: Retrofit): PostApi {
 @JvmStatic
 internal fun provideRetrofitInterface(): Retrofit {
         return Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(Qiita_URL)
                 .addConverterFactory(MoshiConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))
                 .build()

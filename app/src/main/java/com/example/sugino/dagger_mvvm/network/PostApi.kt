@@ -6,7 +6,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface PostApi {
-    @GET("/posts")
+    @GET("items?page=1&per_page=1")
 //fun getPosts(@Query("query") query: String? = null,
 //             @Query("id") id: Int = 1): Observable<List<Post>>
     fun getPosts(@Query("query") query: String? = null): Observable<List<Post>>
