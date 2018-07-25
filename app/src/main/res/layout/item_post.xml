@@ -8,30 +8,35 @@
             type="com.example.sugino.dagger_mvvm.ui.post.PostViewModel"></variable>
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <!--<android.support.constraint.ConstraintLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:paddingLeft="16dp"-->
+        <!--android:paddingRight="16dp">-->
+    <LinearLayout
+        android:id="@+id/original_LinearLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp">
+        android:layout_height="match_parent">
+
         <TextView
             android:id="@+id/post_title"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            app:mutableText="@{viewModel.getPostTitle()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:mutableText="@{viewModel.getPostTitle()}" />
 
         <TextView
             android:id="@+id/post_body"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            app:mutableText="@{viewModel.getPostBody()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/post_title" />
-
-    </android.support.constraint.ConstraintLayout>
+            app:layout_constraintTop_toBottomOf="@+id/post_title"
+            app:mutableText="@{viewModel.getPostBody()}" />
+    </LinearLayout>
+    <!--</android.support.constraint.ConstraintLayout>-->
 </layout>

@@ -11,8 +11,13 @@ import android.support.annotation.StringRes
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
+import android.view.View
+import android.widget.AdapterView
+import android.widget.Toast
 import com.example.sugino.dagger_mvvm.R
 import com.example.sugino.dagger_mvvm.databinding.ActivityPostListBinding
+import com.example.sugino.dagger_mvvm.model.Post
 import kotlinx.android.synthetic.main.activity_post_list.view.*
 
 class PostListActivity: AppCompatActivity() {
@@ -35,6 +40,13 @@ class PostListActivity: AppCompatActivity() {
         viewModel.errorMessage.observe(this, Observer {
             it -> if (it != null) showError(it) else hideError()
         })
+
+        viewModel.postListAdapter.setOnItemClickListener(object : PostListAdapter.OnItemClickListener {
+            override fun onClick(view: View, item: Post) {
+                Toast.makeText(applicationContext, "ああああああ", Toast.LENGTH_LONG).show()
+            }
+        })
+
         binding.viewModel = viewModel
     }
 
