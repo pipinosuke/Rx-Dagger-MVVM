@@ -9,6 +9,5 @@ interface PostApi {
     @GET("/posts")
 //fun getPosts(@Query("query") query: String? = null,
 //             @Query("id") id: Int = 1): Observable<List<Post>>
-    fun getPosts(@Query("query") query: String? = null,
-                 @Query("id") id: Int = 1): Observable<List<Post>>
+    fun getPosts(@Query("query") query: String? = null): Observable<List<Post>>
 }

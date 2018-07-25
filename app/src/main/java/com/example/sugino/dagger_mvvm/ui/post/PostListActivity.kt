@@ -2,6 +2,7 @@ package com.example.sugino.dagger_mvvm.ui.post
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.os.Message
@@ -43,7 +44,9 @@ class PostListActivity: AppCompatActivity() {
 
         viewModel.postListAdapter.setOnItemClickListener(object : PostListAdapter.OnItemClickListener {
             override fun onClick(view: View, item: Post) {
-                Toast.makeText(applicationContext, "ああああああ", Toast.LENGTH_LONG).show()
+                val intent = Intent(this@PostListActivity, PostDetailActivity::class.java)
+                intent.putExtra("url", "https://qiita.com/furusin_oriver/items/5d791e638e9c53ea0a61")
+                startActivity(intent)
             }
         })
 

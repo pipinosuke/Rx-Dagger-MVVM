@@ -17,8 +17,8 @@ class PostListAdapter: RecyclerView.Adapter<PostListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
         setOnItemClickListener(listener)
-        val layoutInflator = LayoutInflater.from(p0.context)
-        val binding: ItemPostBinding = ItemPostBinding.inflate(layoutInflator, p0, false)
+        val layoutInflater = LayoutInflater.from(p0.context)
+        val binding: ItemPostBinding = ItemPostBinding.inflate(layoutInflater, p0, false)
                 //DataBindingUtil.inflate(LayoutInflater.from(p0.context), R.layout.item_post, p0, false)
         return ViewHolder(binding)
     }
