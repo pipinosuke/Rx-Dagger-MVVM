@@ -9,5 +9,7 @@ interface PostApi {
     @GET("items?page=1&per_page=1")
 //fun getPosts(@Query("query") query: String? = null,
 //             @Query("id") id: Int = 1): Observable<List<Post>>
-    fun getPosts(@Query("query") query: String? = null): Observable<List<Post>>
+    fun getPosts(@Query("query") query: String? = null,
+                 @Query("page") page: Int = 1,
+                 @Query("per_page") per_page: Int = 20 ): Observable<List<Post>>
 }
