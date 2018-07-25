@@ -18,6 +18,6 @@ class PostDetailActivity: AppCompatActivity() {
         webView.webViewClient = WebViewClient()
         webView.loadUrl(url)
 
-        webView .settings.javaScriptEnabled = true
+        webView .settings.javaScriptEnabled = false
     }
 }
